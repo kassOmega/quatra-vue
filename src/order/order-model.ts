@@ -16,3 +16,17 @@ export interface OrderFormModel {
   senderPhoneNumber: string
   tagId: number
 }
+export type CustomerResponse = {
+  id: number
+  firstName: string
+  lastName: string
+  phoneNumber: string
+}
+export type CustomerRequest = {
+  firstName: string
+  lastName: string
+  phoneNumber: string
+}
+export type CustomerResponseData<CustomerResponse> = {
+  data: CustomerResponse
+}
