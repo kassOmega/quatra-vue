@@ -2,14 +2,16 @@
 import TextField from '@/common/TextField.vue'
 import type { OrderFormModel } from './order-model'
 import axios from 'axios'
+import { getGustomers } from '@/api/api'
 function createTypedObject<T>(): T {
   return {} as T
 }
-
+const { data, isLoading } = getGustomers
 export default {
   data() {
     return {
-      orderData: createTypedObject<OrderFormModel>()
+      orderData: createTypedObject<OrderFormModel>(),
+      data: data
     }
   },
   methods: {
@@ -24,6 +26,9 @@ export default {
           // Handle error gracefully, e.g., display an error message to the user
         })
     }
+  },
+  mounted() {
+    console.log(data)
   },
   components: { TextField }
 }
